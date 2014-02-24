@@ -1,0 +1,13 @@
+# Site specific files
+cherrypy.config
+db/*
+!db/README.md
+# from virtualenv
+bin
+lib
+include
+local
+# The usual suspects
+*.pyc
+*.swp
+*~

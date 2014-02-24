@@ -1,0 +1,14 @@
+[global]
+server.socket_host: '127.0.0.1'
+server.socket_port: 8888
+
+[/]
+tools.staticdir.root: "/PATH/HERE/static"
+
+[/favicon.ico]
+tools.staticfile.on: True
+tools.staticfile.filename: "/PATH/HERE/static/favicon.ico"
+
+[/assets]
+tools.staticdir.on: True
+tools.staticdir.dir: "assets"

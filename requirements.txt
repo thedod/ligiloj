@@ -1,0 +1,7 @@
+CherryPy==3.2.4
+WTForms==1.0.5
+argparse==1.2.1
+peewee==2.2.1
+pystache==0.5.3
+wsgiref==0.1.2
+wtf-peewee==0.2.2

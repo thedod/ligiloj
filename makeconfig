@@ -1,0 +1,7 @@
+#!/bin/sh
+if [ -f cherrypy.config ] ; then
+    echo you already have cherrypy.config
+else
+    sed -e "s:/PATH/HERE:`pwd`:" < cherrypy.config.example > cherrypy.config
+    echo "created cherrypy.config. Now edit it to taste ;)"
+fi
