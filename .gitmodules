@@ -1,0 +1,3 @@
+[submodule "deps/lamegame_cherrypy_authority"]
+	path = deps/lamegame_cherrypy_authority
+	url = https://github.com/wwoods/lamegame_cherrypy_authority.git

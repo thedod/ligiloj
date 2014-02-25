@@ -2,8 +2,25 @@
 server.socket_host: '127.0.0.1'
 server.socket_port: 8888
 
+[ligiloj]
+site_title: "Mia retejo"
+global_title_text: 'Internaciaj Ligiloj'
+global_title_html: '<i class="glyphicon glyphicon-globe"></i>'
+
 [/]
+tools.lg_authority.on: True
+tools.lg_authority.site_key: 'RANDOM'
+# The INITIAL user/password (if auth db doesn't exist yet) is admin/admin
+# Sure I know it's lame, but anyway when you create a new user, the password is "password" until they login and change it :)
+# The "right way" would be to fork lg_authority and fortify it a bit. One day...
+tools.lg_authority.site_user_list = {'admin': {'auth_password':{'date':datetime.datetime.utcnow(),'pass':['sha256','admin']},'auth_openid':[],'groups':['admin']}}
+tools.lg_authority.site_storage: 'sqlite3'
+tools.lg_authority.site_storage_conf: { 'file': 'db/auth.db' }
 tools.staticdir.root: "/PATH/HERE/static"
+paginate_by: 8
+
+[/link]
+paginate_by: 20
 
 [/favicon.ico]
 tools.staticfile.on: True
@@ -12,3 +29,6 @@ tools.staticfile.filename: "/PATH/HERE/static/favicon.ico"
 [/assets]
 tools.staticdir.on: True
 tools.staticdir.dir: "assets"
+
+[/link]
+request.dispatch: cherrypy.dispatch.MethodDispatcher()

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html language="{{lang}}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{site_title}} - {{title}}</title>
+
+    <!-- Bootstrap -->
+    <link href="{{site_root}}assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{site_root}}assets/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body style="padding-top:8px">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <ul class="nav nav-tabs">
+                <li><a href="{{site_root}}"><i class="glyphicon glyphicon-globe"></i></a></li>
+                {{#user}}
+                  <li class="pull-right"><a class="btn btn-info" href="{{site_root}}auth">{{.}}</a></li>
+                  <li class="pull-right"><a class="btn btn-primary" href="{{site_root}}link"><i class="glyphicon glyphicon-folder-open"></i></a></li>
+                {{/user}}
+              </ul>
+              <h3>{{{fancy_title}}}</h3>
+              {{#csrf_error}}<div class="alert alert-danger">Provo por refreŝigi malaktuala pagxo aux io potenculoj aĉaj ĵus okazis. Bonvolu reprovi.</div>{{/csrf_error}}
+            </div><!-- /.panel-header -->
+            <div class="panel-body"{{#is_rtl}} dir=rtl{{/is_rtl}}>
+              <form role="form" class="form-horizontal" method="POST" action="">
+                <input type="hidden" name="csrf_token" value="{{csrf_token}}">
+                {{#errors}}<div class="alert alert-danger">{{.}}</div>{{/errors}}
+                {{#form}}
+                  <div class="form-group">
+                    {{{label}}}
+                    <div class="col-sm-10">{{{widget}}}</div>
+                  </div>
+                  {{#errors}}<div class="alert alert-danger">{{.}}</div>{{/errors}}
+                {{/form}}
+                <div class="form-group">
+                  {{^create}}
+                    <label class="col-sm-2 control-label text-left text-danger" for="srsly_delete"><i class="glyphicon glyphicon-remove"></i> Forviŝi!</label>
+                    <div class="col-sm-2 text-right"><input class="form-control" id="srsly_delete" name="srsly_delete" type="checkbox"></div>
+                    <div class="col-sm-8 text-right">
+                  {{/create}}
+                  {{#create}}
+                    <div class="col-sm-12 text-right">
+                  {{/create}}
+                    <input type="submit" class="btn btn-primary btn-lg" Value="Fari ĝin tiel">
+                  </div>
+                </div>
+              </form>
+            </div><!-- /.panel-body -->
+          </div><!-- /.panel -->
+        </div><!-- /.col-md-12 -->
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+  </body>
+</html>
+

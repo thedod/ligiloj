@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html language="{{lang}}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{title}}</title>
+
+    <!-- Bootstrap -->
+    <link href="{{site_root}}assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{site_root}}assets/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body style="padding-top:8px">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <ul class="nav nav-tabs">
+                <li><a href="{{site_root}}"><i class="glyphicon glyphicon-globe"></i></a></li>
+                {{#user}}
+                  <li class="pull-right"><a class="btn btn-info" href="{{site_root}}auth">{{.}}</a></li>
+                  <li class="pull-right"><a class="btn btn-primary" href="?create=Vera"><i class="glyphicon glyphicon-plus"></i></a></li>
+                {{/user}}
+              </ul>
+                <h3>
+                  <i class="glyphicon glyphicon-folder-open"></i> {{title}}
+                  <small>(Por aldoni ligojn pli komforte, bonvole treni la legosigno:
+                    <a class="btn btn-info btn-xs"
+                      href="javascript:(function(){window.open('{{url_base}}{{here}}?create=Vera&cl='+encodeURIComponent(document.getElementsByTagName('html')[0].lang||'en')+'&ct='+encodeURIComponent(document.title)+'&cu='+encodeURIComponent(location),'_blank');return%20void(0);})();">Ligilo</a>)</small></h3>
+              {{#success}}<div class="alert alert-success">Skribis al la datenbazo.</div>{{/success}}
+{{{debug}}}
+            </div><!-- /.panel-header -->
+            <div class="panel-body">
+                <ul class="pager">
+                  {{#previous}}<li class="previous"><a href="?page={{.}}">&lt;</a></li>{{/previous}}
+                  {{#next}}<li class="next"><a href="?page={{.}}">&gt;</a></li>{{/next}}
+                </ul>
+                <table class="table table-bordered table-hover">
+                  <tbody>
+                  {{#links}}
+                    <tr>
+                      <td><a class="btn btn-primary" href="{{here}}{{id}}"><i class="glyphicon glyphicon-edit"></i></a></td>
+                      <td>{{published}}</td>
+                      <td{{#is_rtl}} dir=rtl align=right{{/is_rtl}}>{{code}}: {{name}}</td>
+                      <td{{#is_rtl}} dir=rtl align=right{{/is_rtl}} width="75%">
+                        <a target="_blank" href="{{url}}">{{ title }}</a>
+                      </td>
+                    <tr>
+                  {{/links}}
+                  </tbody>
+                </table>
+                <ul class="pager">
+                  {{#previous}}<li class="previous"><a href="?page={{.}}">&lt;</a></li>{{/previous}}
+                  {{#next}}<li class="next"><a href="?page={{.}}">&gt;</a></li>{{/next}}
+                </ul>
+            </div><!-- /.panel-body -->
+          </div><!-- /.panel -->
+        </div><!-- /.col-md-12 -->
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+  </body>
+</html>
+

@@ -2,11 +2,8 @@
 cherrypy.config
 db/*
 !db/README.md
-# from virtualenv
-bin
-lib
-include
-local
+# virtualenv
+ligiloj-env
 # The usual suspects
 *.pyc
 *.swp

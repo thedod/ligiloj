@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{lang}}">
+<html language="{{lang}}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +7,8 @@
     <title>{{title}}</title>
 
     <!-- Bootstrap -->
-    <link href="{{static_root}}css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{static_root}}css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="{{site_root}}assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{site_root}}assets/css/bootstrap-theme.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,7 +17,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body style="padding-top:50px">
+  <body style="padding-top:8px">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -25,11 +25,17 @@
             <div class="panel-heading">
               <ul class="nav nav-tabs">
                 {{#menu}}
-                  <li{{#is_rtl}} dir=rtl{{/is_rtl}}{{#selected}} class="active"{{/selected}}><a href="/{{code}}">{{name}}</a></li>
+                  <li{{#is_rtl}} dir=rtl{{/is_rtl}}{{#selected}} class="active"{{/selected}}><a href="{{site_root}}{{code}}">{{{name}}}</a></li>
                 {{/menu}}
+                <li class="pull-right"><a target="_blank" href="https://github.com/thedod/ligiloj#readme"><i class="glyphicon glyphicon-wrench"></i></a></li>
+                {{#user}}
+                  <li class="pull-right"><a class="btn btn-info" href="{{site_root}}auth">{{.}}</a></li>
+                  <li class="pull-right"><a class="btn btn-primary" href="link"><i class="glyphicon glyphicon-folder-open"></i></a></li>
+                {{/user}}
               </ul>
               {{#active_language}}
-                <h3{{#is_rtl}} dir=rtl{{/is_rtl}}>{{title}}</h3>
+                <h3{{#is_rtl}} dir=rtl{{/is_rtl}}>{{{fancy_title}}}</h3>
+{{{debug}}}
               {{/active_language}}
             </div><!-- /.panel-header -->
             <div class="panel-body">
@@ -37,21 +43,26 @@
                 <ul class="pager">
                   {{#previous}}<li
                     class="{{^is_rtl}}previous{{/is_rtl}}{{#is_rtl}}next{{/is_rtl}}"><a
-                      href="{{.}}">{{#is_rtl}}&gt;{{/is_rtl}}{{^is_rtl}}&lt;{{/is_rtl}}</a></li>{{/previous}}
+                      href="{{site_root}}{{#code}}{{.}}/{{/code}}{{.}}">{{#is_rtl}}&gt;{{/is_rtl}}{{^is_rtl}}&lt;{{/is_rtl}}</a></li>{{/previous}}
                   {{#next}}<li class="{{^is_rtl}}next{{/is_rtl}}{{#is_rtl}}previous{{/is_rtl}}"><a
-                      href="{{.}}">{{#is_rtl}}&lt;{{/is_rtl}}{{^is_rtl}}&gt;{{/is_rtl}}</a></li>{{/next}}
+                      href="{{site_root}}{{#code}}{{.}}/{{/code}}{{.}}">{{#is_rtl}}&lt;{{/is_rtl}}{{^is_rtl}}&gt;{{/is_rtl}}</a></li>{{/next}}
                 </ul>
+              {{/active_language}}
                 <ul class="nav nav-pills nav-stacked">
                   {{#links}}
-                    <li{{#is_rtl}} dir=rtl{{/is_rtl}}><a target="_blank" href="{{url}}">{{ title }}</a></li>
+                    <li{{#is_rtl}} dir=rtl align=right{{/is_rtl}}>
+                      <a target="_blank"
+                          href="{{url}}">{{#is_international}}{{name}}: {{/is_international}}{{ title }}</a>
+                    </li>
                   {{/links}}
                 </ul>
+              {{#active_language}}
                 <ul class="pager">
                   {{#previous}}<li
                     class="{{^is_rtl}}previous{{/is_rtl}}{{#is_rtl}}next{{/is_rtl}}"><a
-                      href="{{.}}">{{#is_rtl}}&gt;{{/is_rtl}}{{^is_rtl}}&lt;{{/is_rtl}}</a></li>{{/previous}}
+                      href="{{site_root}}{{#code}}{{.}}/{{/code}}{{.}}">{{#is_rtl}}&gt;{{/is_rtl}}{{^is_rtl}}&lt;{{/is_rtl}}</a></li>{{/previous}}
                   {{#next}}<li class="{{^is_rtl}}next{{/is_rtl}}{{#is_rtl}}previous{{/is_rtl}}"><a
-                      href="{{.}}">{{#is_rtl}}&lt;{{/is_rtl}}{{^is_rtl}}&gt;{{/is_rtl}}</a></li>{{/next}}
+                      href="{{site_root}}{{#code}}{{.}}/{{/code}}{{.}}">{{#is_rtl}}&lt;{{/is_rtl}}{{^is_rtl}}&gt;{{/is_rtl}}</a></li>{{/next}}
                 </ul>
               {{/active_language}}
             </div><!-- /.panel-body -->

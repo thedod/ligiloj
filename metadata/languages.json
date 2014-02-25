@@ -111,7 +111,7 @@
         {
             "is_rtl": false, 
             "code": "pl", 
-            "name": "polski", 
+            "name": "Polski", 
             "english_name": "Polish"
         }, 
         {
@@ -123,7 +123,7 @@
         {
             "is_rtl": false, 
             "code": "fr", 
-            "name": "fran\u00e7aise", 
+            "name": "Fran\u00e7aise", 
             "english_name": "French"
         }, 
         {
@@ -246,7 +246,7 @@
         }, 
         {
             "code": "la", 
-            "name": "latine, lingua latina", 
+            "name": "Latine, lingua latina", 
             "english_name": "Latin"
         }, 
         {
@@ -281,17 +281,17 @@
         }, 
         {
             "code": "lv", 
-            "name": "latvie\u0161u valoda", 
+            "name": "Latvie\u0161u valoda", 
             "english_name": "Latvian"
         }, 
         {
             "code": "to", 
-            "name": "faka Tonga", 
+            "name": "Faka Tonga", 
             "english_name": "Tonga (Tonga Islands)"
         }, 
         {
             "code": "lt", 
-            "name": "lietuvi\u0173 kalba", 
+            "name": "Lietuvi\u0173 kalba", 
             "english_name": "Lithuanian"
         }, 
         {
@@ -346,7 +346,7 @@
         }, 
         {
             "code": "da", 
-            "name": "dansk", 
+            "name": "Dansk", 
             "english_name": "Danish"
         }, 
         {
@@ -406,17 +406,17 @@
         }, 
         {
             "code": "eu", 
-            "name": "euskara, euskera", 
+            "name": "Euskara, euskera", 
             "english_name": "Basque"
         }, 
         {
             "code": "et", 
-            "name": "eesti, eesti keel", 
+            "name": "Eesti, eesti keel", 
             "english_name": "Estonian"
         }, 
         {
             "code": "es", 
-            "name": "espa\u00f1ol, castellano", 
+            "name": "Espa\u00f1ol, castellano", 
             "english_name": "Spanish; Castilian"
         }, 
         {
@@ -431,17 +431,17 @@
         }, 
         {
             "code": "rm", 
-            "name": "rumantsch grischun", 
+            "name": "Rumantsch grischun", 
             "english_name": "Romansh"
         }, 
         {
             "code": "rn", 
-            "name": "kiRundi", 
+            "name": "KiRundi", 
             "english_name": "Kirundi"
         }, 
         {
             "code": "ro", 
-            "name": "rom\u00e2n\u0103", 
+            "name": "Rom\u00e2n\u0103", 
             "english_name": "Romanian, Moldavian, Moldovan"
         }, 
         {
@@ -476,12 +476,12 @@
         }, 
         {
             "code": "bm", 
-            "name": "bamanankan", 
+            "name": "Bamanankan", 
             "english_name": "Bambara"
         }, 
         {
             "code": "jv", 
-            "name": "basa Jawa", 
+            "name": "Basa Jawa", 
             "english_name": "Javanese"
         }, 
         {
@@ -501,12 +501,12 @@
         }, 
         {
             "code": "br", 
-            "name": "brezhoneg", 
+            "name": "Brezhoneg", 
             "english_name": "Breton"
         }, 
         {
             "code": "bs", 
-            "name": "bosanski jezik", 
+            "name": "Bosanski jezik", 
             "english_name": "Bosnian"
         }, 
         {
@@ -551,7 +551,7 @@
         }, 
         {
             "code": "xh", 
-            "name": "isiXhosa", 
+            "name": "IsiXhosa", 
             "english_name": "Xhosa"
         }, 
         {
@@ -561,7 +561,7 @@
         }, 
         {
             "code": "co", 
-            "name": "corsu, lingua corsa", 
+            "name": "Corsu, lingua corsa", 
             "english_name": "Corsican"
         }, 
         {
@@ -641,7 +641,7 @@
         }, 
         {
             "code": "pl", 
-            "name": "polski", 
+            "name": "Polski", 
             "english_name": "Polish"
         }, 
         {
@@ -656,7 +656,7 @@
         }, 
         {
             "code": "hr", 
-            "name": "hrvatski", 
+            "name": "Hrvatski", 
             "english_name": "Croatian"
         }, 
         {
@@ -690,18 +690,13 @@
             "english_name": "Hausa"
         }, 
         {
-            "code": "he", 
-            "name": "\u05e2\u05d1\u05e8\u05d9\u05ea", 
-            "english_name": "Hebrew (modern)"
-        }, 
-        {
             "code": "mg", 
             "name": "Malagasy fiteny", 
             "english_name": "Malagasy"
         }, 
         {
             "code": "uz", 
-            "name": "zbek, \u040e\u0437\u0431\u0435\u043a, \u0623\u06c7\u0632\u0628\u06d0\u0643\u200e", 
+            "name": "Zbek, \u040e\u0437\u0431\u0435\u043a, \u0623\u06c7\u0632\u0628\u06d0\u0643\u200e", 
             "english_name": "Uzbek"
         }, 
         {
@@ -716,7 +711,7 @@
         }, 
         {
             "code": "mi", 
-            "name": "te reo M\u0101ori", 
+            "name": "Te reo M\u0101ori", 
             "english_name": "M\u0101ori"
         }, 
         {
@@ -741,7 +736,7 @@
         }, 
         {
             "code": "ms", 
-            "name": "bahasa Melayu, \u0628\u0647\u0627\u0633 \u0645\u0644\u0627\u064a\u0648\u200e", 
+            "name": "Bahasa Melayu, \u0628\u0647\u0627\u0633 \u0645\u0644\u0627\u064a\u0648\u200e", 
             "english_name": "Malay"
         }, 
         {
@@ -776,7 +771,7 @@
         }, 
         {
             "code": "ae", 
-            "name": "avesta", 
+            "name": "Avesta", 
             "english_name": "Avestan"
         }, 
         {
@@ -835,11 +830,6 @@
             "english_name": "Assamese"
         }, 
         {
-            "code": "ar", 
-            "name": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629", 
-            "english_name": "Arabic"
-        }, 
-        {
             "code": "su", 
             "name": "Basa Sunda", 
             "english_name": "Sundanese"
@@ -856,12 +846,12 @@
         }, 
         {
             "code": "ay", 
-            "name": "aymar aru", 
+            "name": "Aymar aru", 
             "english_name": "Aymara"
         }, 
         {
             "code": "az", 
-            "name": "az\u0259rbaycan dili", 
+            "name": "Az\u0259rbaycan dili", 
             "english_name": "Azerbaijani"
         }, 
         {
@@ -881,7 +871,7 @@
         }, 
         {
             "code": "sk", 
-            "name": "sloven\u010dina", 
+            "name": "Sloven\u010dina", 
             "english_name": "Slovak"
         }, 
         {
@@ -916,7 +906,7 @@
         }, 
         {
             "code": "nd", 
-            "name": "isiNdebele", 
+            "name": "IsiNdebele", 
             "english_name": "North Ndebele"
         }, 
         {
@@ -931,7 +921,7 @@
         }, 
         {
             "code": "ny", 
-            "name": "chiChe\u0175a, chinyanja", 
+            "name": "ChiChe\u0175a, chinyanja", 
             "english_name": "Chichewa; Chewa; Nyanja"
         }, 
         {
@@ -946,7 +936,7 @@
         }, 
         {
             "code": "nr", 
-            "name": "isiNdebele", 
+            "name": "IsiNdebele", 
             "english_name": "South Ndebele"
         }, 
         {
@@ -956,17 +946,17 @@
         }, 
         {
             "code": "sn", 
-            "name": "chiShona", 
+            "name": "ChiShona", 
             "english_name": "Shona"
         }, 
         {
             "code": "fr", 
-            "name": "fran\u00e7ais, langue fran\u00e7aise", 
+            "name": "Fran\u00e7ais, langue fran\u00e7aise", 
             "english_name": "French"
         }, 
         {
             "code": "sm", 
-            "name": "gagana faa Samoa", 
+            "name": "Gagana faa Samoa", 
             "english_name": "Samoan"
         }, 
         {
@@ -976,7 +966,7 @@
         }, 
         {
             "code": "sv", 
-            "name": "svenska", 
+            "name": "Svenska", 
             "english_name": "Swedish"
         }, 
         {
@@ -992,12 +982,12 @@
         }, 
         {
             "code": "fi", 
-            "name": "suomi, suomen kieli", 
+            "name": "Suomi, suomen kieli", 
             "english_name": "Finnish"
         }, 
         {
             "code": "fj", 
-            "name": "vosa Vakaviti", 
+            "name": "Vosa Vakaviti", 
             "english_name": "Fijian"
         }, 
         {
@@ -1007,7 +997,7 @@
         }, 
         {
             "code": "fo", 
-            "name": "f\u00f8royskt", 
+            "name": "F\u00f8royskt", 
             "english_name": "Faroese"
         }, 
         {
@@ -1052,7 +1042,7 @@
         }, 
         {
             "code": "kl", 
-            "name": "kalaallisut, kalaallit oqaasii", 
+            "name": "Kalaallisut, kalaallit oqaasii", 
             "english_name": "Kalaallisut, Greenlandic"
         }, 
         {
@@ -1087,12 +1077,12 @@
         }, 
         {
             "code": "sl", 
-            "name": "sloven\u0161\u010dina", 
+            "name": "Sloven\u0161\u010dina", 
             "english_name": "Slovene"
         }, 
         {
             "code": "sc", 
-            "name": "sardu", 
+            "name": "Sardu", 
             "english_name": "Sardinian"
         }, 
         {
@@ -1102,7 +1092,7 @@
         }, 
         {
             "code": "sg", 
-            "name": "y\u00e2ng\u00e2 t\u00ee s\u00e4ng\u00f6", 
+            "name": "Y\u00e2ng\u00e2 t\u00ee s\u00e4ng\u00f6", 
             "english_name": "Sango"
         }, 
         {
