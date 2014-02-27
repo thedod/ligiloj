@@ -1,19 +1,18 @@
-"Ligiloj" means "links" in Esperanto.
-
-Sometimes, there are issues of interest affecting loosely-related communities of people speaking several languages:
+"Ligiloj" means "links" in Esperanto. It's a simple tool to collect links in various languages
+concerning a loosely-related "global community" such as:
 
 * A global event (e.g. "buy nothing day").
-* A local crisis (e.g. earthquake) where people speaking several languages are involved (tourists, border areas).
-* An artist who has fans worldwide (this is what Ligiloj was written for originally :) ).
+* A local crisis (e.g. earthquake) where people speaking several languages are involved (tourists, border area).
+* An artist who has fans worldwide (this is what Ligiloj was developed for originally :) ).
 
-Ligiloj assumes the admins have to deal with items in a language they don't understand:
+Since Ligiloj assumes admins woud have to deal with items in a language they don't understand it is deliberately dumbed-down to the minimum:
 
   * "Posts" don't have bodies, only titles (similar to tweets).
-  * Admins have a bookmarklet that copies the page title (and in some cases - the language) into a link form they can manually edit and post.
+  * Admins have a bookmarklet that copies the page title (and in some cases - the language) into a link form they can manually edit [if needed] and post.
 
-In order to equally share that special "surfing while foreigner" feeling English speakers are deprived of,
-the language of the user interface is Esperanto (had to pick *some* language ;) ).
-Fear not. There are icons, and worst case there are online translation services, so deal with it like most of the world does ;)
+In order to equally share that special "surfing while foreigner" feeling English speakers are usually deprived of,
+the language of the user interface is Esperanto (not that I speak it, but I had to pick *some* language ;) ).
+Fear not. There are icons, and worst case you can use online translation services and deal with it like most of the world does ;)
 
 ### Install/config:
 
