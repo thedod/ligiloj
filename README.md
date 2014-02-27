@@ -5,13 +5,15 @@ concerning a loosely-related "global community" such as:
 * A local crisis (e.g. earthquake) where people speaking several languages are involved (tourists, border area).
 * An artist who has fans worldwide (this is what Ligiloj was developed for originally :) ).
 
-Since Ligiloj assumes admins woud have to deal with items in a language they don't understand it is deliberately dumbed-down to the minimum:
+Since Ligiloj assumes admins would have to deal with items in languages they don't understand, it is deliberately dumbed-down to the minimum:
 
   * "Posts" don't have bodies, only titles (similar to tweets).
-  * Admins have a bookmarklet that copies the page title (and in some cases - the language) into a link form they can manually edit [if needed] and post.
+  * Admins can use a bookmarklet that copies the page title into a form they can manually edit [if needed] and post.
+
+### Language barriers can be fun
 
 In order to equally share that special "surfing while foreigner" feeling English speakers are usually deprived of,
-the language of the user interface is Esperanto (not that I speak it, but I had to pick *some* language ;) ).
+the language of the user interface is Esperanto (It's OK. I don't understand it either ;) ).
 Fear not. There are icons, and worst case you can use online translation services and deal with it like most of the world does ;)
 
 ### Install/config:
