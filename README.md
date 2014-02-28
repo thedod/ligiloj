@@ -14,7 +14,9 @@ Since Ligiloj assumes admins would have to deal with items in languages they don
 
 In order to equally share that special "surfing while foreigner" feeling English speakers are usually deprived of,
 the language of the user interface is Esperanto (It's OK. I don't understand it either ;) ).
-Fear not. There are icons, and worst case you can use online translation services and deal with it like most of the world does ;)
+Fear not. There are icons, you can use online translation services, deal with it like most of the world does ;)
+
+![Guess what the red "+ligiloi" does :)](metadata/editor-screenshot.jpg)
 
 ### Install/config:
 
