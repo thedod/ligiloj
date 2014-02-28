@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 import cherrypy, lg_authority, models, pystache, random, cgi
+from appdir import APPDIR
 
 stache = pystache.Renderer(
-    search_dirs='templates',file_encoding='utf-8',string_encoding='utf-8',file_extension='html')
+    search_dirs='{0}/templates'.format(APPDIR),file_encoding='utf-8',string_encoding='utf-8',file_extension='html')
 
 ### GUI helper functions
 def make_csrf_token():
@@ -62,7 +63,6 @@ class FakeMultiDict(dict):
             return [self[k]]
         return []
 
-
 ### Link editor
 
 @lg_authority.groups('auth') # any authenticated user can access all methods
@@ -88,8 +88,8 @@ class LigilojLink(object):
                 'user':cherrypy.serving.user.name,
                 'title':'Ligilo Redaktilon',
                 'url_base':cherrypy.request.base,
-                'site_root':cherrypy.request.script_name+'/',
-                'here':cherrypy.request.script_name+cherrypy.request.path_info+'/',
+                'site_root':cherrypy.request.base+cherrypy.request.script_name+'/',
+                'here':cherrypy.request.base+cherrypy.request.script_name+cherrypy.request.path_info+'/',
                 'success':success,
                 'links':query.paginate(page,cherrypy.request.config['paginate_by']).dicts()
             }
@@ -122,8 +122,8 @@ class LigilojLink(object):
             site_title=conf['site_title'],
             title=title,
             fancy_title=fancy_title,
-            site_root=cherrypy.request.script_name+'/',
-            here=cherrypy.request.script_name+cherrypy.request.path_info+'/',
+            site_root=cherrypy.request.base+cherrypy.request.script_name+'/',
+            here=cherrypy.request.base+cherrypy.request.script_name+cherrypy.request.path_info+'/',
             csrf_token=make_csrf_token(),
             form=bootstrapize_form(models.LinkForm(obj=l)))
     def POST(self,link_id=None,srsly_delete=False,*args,**kwargs):
@@ -132,7 +132,7 @@ If srsly_delete, will [SRSLY] delete the link"""
         conf = cherrypy.request.app.config['ligiloj']
         if not check_csrf_token(cherrypy.request.params.get('csrf_token','')):
             raise cherrypy.HTTPRedirect('?csrf_error=Vera',303)
-        here = cherrypy.request.script_name+cherrypy.request.path_info+'/'
+        here = cherrypy.request.base+cherrypy.request.script_name+cherrypy.request.path_info+'/'
         if link_id: # edit existing link
             try: # get link to save
                 l=models.Link.get(id=link_id)
@@ -152,7 +152,7 @@ If srsly_delete, will [SRSLY] delete the link"""
         return stache.render(stache.load_template('edit_link'),l,
             user=cherrypy.serving.user.name,
             title=u'Redaktado ligilo: {0}'.format(l.__unicode__()), site_title=conf['site_title'],
-            site_root=cherrypy.request.script_name+'/',
+            site_root=cherrypy.request.base+cherrypy.request.script_name+'/',
             here=here,
             csrf_token=make_csrf_token(),
             form=bootstrapize_form(form))
@@ -162,7 +162,7 @@ class LigilojApp(object):
     @lg_authority.groups('auth') # any authenticated user
     @cherrypy.expose
     def login(self,*args,**kargs): # just a dummy point that requires login
-        raise cherrypy.HTTPRedirect(cherrypy.request.script_name+'/')
+        raise cherrypy.HTTPRedirect(cherrypy.request.base+cherrypy.request.script_name+'/')
     @cherrypy.expose
     def default(self,*args,**kwargs):
         arglist = list(args)
@@ -180,21 +180,24 @@ class LigilojApp(object):
             language = models.get_language(lang)
             if language is None:
                 raise cherrypy.HTTPError(404,"Nekonata lingvo")
-        elif page==1 and len(args):
-              raise cherrypy.HTTPRedirect('..')
         conf = cherrypy.request.app.config['ligiloj']
-        page_title = language and language.name or conf['global_title_text']
+        page_title = language and language.__unicode__().split(':')[-1].strip() or conf['global_title_text']
         menu,active_language = make_menu(lang)
         query = models.Link().select(models.Link,models.Language).join(models.Language)
         if language:
             query = query.where(models.Link.language == language)
+        try:
+            user = cherrypy.serving.user and cherrypy.serving.user.name
+        except:
+            user = None
         result = {
-            'user':cherrypy.serving.user and cherrypy.serving.user.name,
+            #'debug':[cherrypy.request.base,cherrypy.request.script_name,cherrypy.request.path_info],
+            'user':user,
             'title':u'{0} - {1}'.format(conf['site_title'],page_title),
             'fancy_title':u'{0} <small>{1}</small>'.format(
                 conf['site_title'],
                 language and page_title or conf['global_title_html']),
-            'site_root':cherrypy.request.script_name+'/',
+            'site_root':cherrypy.request.base+cherrypy.request.script_name+'/',
             'lang':lang or 'en',
             'menu':menu,
             'active_language':active_language,
@@ -206,9 +209,9 @@ class LigilojApp(object):
         return stache.render(stache.load_template('index'),result)
 
 if __name__ == '__main__':
-    cherrypy.config.update('cherrypy.config')
+    cherrypy.config.update('{0}/cherrypy.config'.format(APPDIR))
     app = LigilojApp()
     app.link = LigilojLink()
-    cherrypy.tree.mount(app,'/',config='cherrypy.config')
+    cherrypy.tree.mount(app,'/',config='{0}/cherrypy.config'.format(APPDIR))
     cherrypy.engine.start()
     cherrypy.engine.block()

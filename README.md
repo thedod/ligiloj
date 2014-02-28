@@ -20,8 +20,8 @@ Fear not. There are icons, and worst case you can use online translation service
 
 * To install the `lg_authority` submodule: `git submodule update --init`
 * To install other dependencies: `pip install -r requirements.txt`
-* To create an initial `cherrypy.config`: `./makeconfig`.
-* To initialize the db: `python models.py` (say `y` at the prompt).
+* To create an initial `cherrypy.config`: `./makeconfig`. (also creates the dumb but useful `appdir.conf`)
+* To initialize the db and load language deinitions: `python models.py` (say `y` at the prompt).
 
 ### Run:
 

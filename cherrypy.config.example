@@ -1,6 +1,23 @@
 [global]
 server.socket_host: '127.0.0.1'
 server.socket_port: 8888
+# If app is mounted on [say] /ligiloj via proxy:
+#tools.proxy.on: True
+#tools.proxy.local: ''
+#tools.proxy.base: 'https://swatwt.com/ligiloj'
+#tools.proxy.debug: True
+tools.lg_authority.on: True
+tools.lg_authority.site_debug: True
+# If app is mounted on [say] /ligiloj via proxy:
+#tools.lg_authority.site_auth_root: '/ligiloj/auth/'
+#tools.lg_authority.deny_page_anon: '/ligiloj/auth/login'
+tools.lg_authority.site_key: 'RANDOM'
+tools.lg_authority.site_storage: 'sqlite3'
+tools.lg_authority.site_storage_conf: { 'file': '/PATH/HERE/db/auth.db' }
+# The INITIAL user/password (if auth db doesn't exist yet) is admin/admin
+# Sure I know it's lame, but anyway when you create a new user, the password is "password" until they login and change it :)
+# The "right way" would be to fork lg_authority and fortify it a bit. One day...
+tools.lg_authority.site_user_list = {'admin': {'auth_password':{'date':datetime.datetime.utcnow(),'pass':['sha256','admin']},'auth_openid':[],'groups':['admin']}}
 
 [ligiloj]
 site_title: "Mia retejo"
@@ -8,14 +25,6 @@ global_title_text: 'Internaciaj Ligiloj'
 global_title_html: '<i class="glyphicon glyphicon-globe"></i>'
 
 [/]
-tools.lg_authority.on: True
-tools.lg_authority.site_key: 'RANDOM'
-# The INITIAL user/password (if auth db doesn't exist yet) is admin/admin
-# Sure I know it's lame, but anyway when you create a new user, the password is "password" until they login and change it :)
-# The "right way" would be to fork lg_authority and fortify it a bit. One day...
-tools.lg_authority.site_user_list = {'admin': {'auth_password':{'date':datetime.datetime.utcnow(),'pass':['sha256','admin']},'auth_openid':[],'groups':['admin']}}
-tools.lg_authority.site_storage: 'sqlite3'
-tools.lg_authority.site_storage_conf: { 'file': 'db/auth.db' }
 tools.staticdir.root: "/PATH/HERE/static"
 paginate_by: 8
 

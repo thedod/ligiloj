@@ -7,8 +7,8 @@ logger = logging.getLogger('peewee')
 logger.setLevel(logging.INFO)
 logger.addHandler(logging.StreamHandler())
 
-#TODO this should be conf:
-db = SqliteDatabase('db/ligiloj.db', threadlocals=True)
+from appdir import APPDIR
+db = SqliteDatabase('{0}/db/ligiloj.db'.format(APPDIR), threadlocals=True)
 
 class BaseModel(Model):
     class Meta:
