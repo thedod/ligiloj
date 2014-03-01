@@ -222,7 +222,7 @@ class LigilojApp(object):
         result = {
             #'debug':[cherrypy.request.base,cherrypy.request.script_name,cherrypy.request.path_info],
             'user':user,
-            'title':u'{0} - {1}'.format(conf['site_title'],page_title),
+            'title':u'{0} - {1}'.format(page_title,conf['site_title']),
             'fancy_title':u'{0} <small>{1}</small>'.format(
                 conf['site_title'],
                 language and page_title or conf['global_title_html']),
