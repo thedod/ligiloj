@@ -20,9 +20,13 @@ tools.lg_authority.site_storage_conf: { 'file': '/PATH/HERE/db/auth.db' }
 tools.lg_authority.site_user_list = {'admin': {'auth_password':{'date':datetime.datetime.utcnow(),'pass':['sha256','admin']},'auth_openid':[],'groups':['admin']}}
 
 [ligiloj]
-site_title: "Mia retejo"
+site_title: "LOL Katoj"
 global_title_text: 'Internaciaj Ligiloj'
 global_title_html: '<i class="glyphicon glyphicon-globe"></i>'
+rss_site_url: "http://ligiloj.example.com"
+rss_description: "Informoj pri LOL Katoj en diversaj lingvoj"
+rss_default_language: "eo" # Esperanto ;)
+rss_max_size: 100
 
 [/]
 tools.staticdir.root: "/PATH/HERE/static"
@@ -30,6 +34,7 @@ paginate_by: 8
 
 [/link]
 paginate_by: 20
+request.dispatch: cherrypy.dispatch.MethodDispatcher()
 
 [/favicon.ico]
 tools.staticfile.on: True
@@ -38,6 +43,3 @@ tools.staticfile.filename: "/PATH/HERE/static/favicon.ico"
 [/assets]
 tools.staticdir.on: True
 tools.staticdir.dir: "assets"
-
-[/link]
-request.dispatch: cherrypy.dispatch.MethodDispatcher()

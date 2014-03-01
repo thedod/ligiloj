@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-import cherrypy, lg_authority, models, pystache, random, cgi
+import cherrypy, lg_authority, models, pystache, random, datetime, time
+from PyRSS2Gen import RSS2, RSSItem, Guid
+from cStringIO import StringIO
 from appdir import APPDIR
 
 stache = pystache.Renderer(
@@ -42,6 +44,10 @@ def nextprev(count,page,paginate_by):
     return result
 
 def make_menu(selected=None):
+    """
+Returns dicts representing a menu item for "internaciaj" and an item per each language that has links.
+If selected is a language code, the dict for its tab will be [the only one] with 'selected':True
+"""
     menu = [{'code':'','name':cherrypy.request.app.config['ligiloj']['global_title_html'],'selected':True}]
     menu += list(models.Language.select().annotate(models.Link).dicts()) # This "inner-joins away" languages without any links
     if selected:
@@ -53,11 +59,13 @@ def make_menu(selected=None):
     return menu,menu[0]
 
 def bootstrapize_form(form):
+    """Mutate a WTform to fit the whims of bootsrap""" # Reminds me of Uzi's rabi joke
     return [{'label':f.label(class_='col-sm-2 control-label'),
         'widget':f(class_='form-control'+(f.errors and ' text-danget' or '')),
         'errors':f.errors} for f in form]
 
 class FakeMultiDict(dict):
+    """Mutate a dict to fit the whims of WTForm""" # Now I'll be thinking about Uzi all day
     def getlist(self,k):
         if self.has_key(k):
             return [self[k]]
@@ -67,7 +75,7 @@ class FakeMultiDict(dict):
 
 @lg_authority.groups('auth') # any authenticated user can access all methods
 class LigilojLink(object):
-    """ Link editor (at /link) """
+    """ Link editor (at /link). Get does the reading, POST does the writing. No CRUD, No JS :) """
     exposed = True
     def GET(self,link_id=None,page=1,success=False,csrf_error=False,create=False,cl='en',ct='?',cp=None,cu='http://',*args,**kwargs):
         """Can display 3 kinds of pages (depending on args):
@@ -98,7 +106,6 @@ class LigilojLink(object):
         elif create:
             #--- 2nd option: show a creation form
             try: # I'm sure there's a simpler way :)
-                import datetime,time
                 cp = datetime.date.fromtimestamp(time.mktime(time.strptime(cp,'%Y-%m-%d')))
             except:
                 cp = datetime.date.today()
@@ -158,13 +165,35 @@ If srsly_delete, will [SRSLY] delete the link"""
             form=bootstrapize_form(form))
 
 class LigilojApp(object):
+    """The end user app at /[language/][page]"""
     auth = lg_authority.AuthRoot()
-    @lg_authority.groups('auth') # any authenticated user
     @cherrypy.expose
-    def login(self,*args,**kargs): # just a dummy point that requires login
+    @lg_authority.groups('auth') # any authenticated user
+    def login(self,*args,**kargs):
+        """Just a dummy mountpoint that requires auth."""
         raise cherrypy.HTTPRedirect(cherrypy.request.base+cherrypy.request.script_name+'/')
     @cherrypy.expose
+    def rss(self,language=None,*args,**kwargs):
+        if language:
+            l = models.get_language(language)
+        conf = cherrypy.request.app.config['ligiloj']
+        query = models.Link().select(models.Link,models.Language).join(models.Language)
+        if language:
+            query = query.where(models.Link.language == l)
+        cherrypy.response.headers['Content-Type'] = 'application/xml'
+        return RSS2(title=u'{0} - {1}'.format(conf['site_title'],language and l.name or conf['global_title_text']),
+            link=conf['rss_site_url'],
+            description=conf['rss_description'],
+            generator='ye-odlde-we-do-not-forget-code-poole',
+            docs='http://www.aaronsw.com/weblog/000574',
+            language=language or conf['rss_default_language'],
+            items=[RSSItem(title=language and link.title or u"{0}: {1}".format(link.language.name,link.title),
+                link=link.url,
+                guid=Guid(link.url,str(link.id))) for link in query]).to_xml('utf-8')
+        
+    @cherrypy.expose
     def default(self,*args,**kwargs):
+        """The end user method at /[language/][page]"""
         arglist = list(args)
         if not arglist or not arglist[-1].isdigit():
             arglist.append('1')
