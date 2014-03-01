@@ -20,8 +20,13 @@ Fear not. There are icons, you can use online translation services, deal with it
 
 ### RSS (or, look what we've done to his song. Duh)
 There are RSS feeds at `/rss`[`/<lnaguage code>`]. You browser may not remember how to show this to you (et tu, Mozilla?),
-but there are many ways to integrate RSS [server side](http://wordpress.org/plugins/rss-feed-widget/),
-aggregate it on phones, and do all those things @AARONSW enabled us to do with information (not what we've ended up doing with it).
+but there are many ways to [integrate](https://codex.wordpress.org/WordPress_Widgets#Using_RSS_Widgets)
+[RSS](http://offog.org/code/rawdog/) [server](http://www.planetplanet.org/) [side](http://wordpress.org/plugins/search.php?q=rss+widget&sort=),
+[aggregate](http://lifehacker.com/the-best-news-reader-application-for-android-5807863) it
+[on](https://github.com/ahorn/android-rss)
+[phones](http://www.macworld.com/article/1140310/rssreaders.html),
+and do all those federated and p2p things @AARONSW enabled us to do with information
+(not what we've [ended](https://en.wikipedia.org/wiki/Behavioral_targeting) [up](https://www.eff.org/nsa-spying) doing with it).
 
 ### Install/config:
 
