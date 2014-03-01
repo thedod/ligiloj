@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{site_title}} - {{title}}</title>
+    <title>{{title}} - {{site_title}}</title>
     <link rel="icon" type="image/x-icon" href="{{site_root}}favicon.ico">
 
     <!-- Bootstrap -->
@@ -32,7 +32,7 @@
                 {{/user}}
               </ul>
               <h3>{{{fancy_title}}}</h3>
-              {{#csrf_error}}<div class="alert alert-danger">Provo por refreŝigi malaktuala pagxo aux io potenculoj aĉaj ĵus okazis. Bonvolu reprovi.</div>{{/csrf_error}}
+              {{#csrf_error}}<div class="alert alert-danger">Provo por refreŝigi malaktuala pagxo, aux io potenculoj aĉaj ĵus okazis. Bonvolu reprovi.</div>{{/csrf_error}}
             </div><!-- /.panel-header -->
             <div class="panel-body"{{#is_rtl}} dir=rtl{{/is_rtl}}>
               <form role="form" class="form-horizontal" method="POST" action="">
