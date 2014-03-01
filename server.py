@@ -95,6 +95,7 @@ class LigilojLink(object):
                 #'debug':[cherrypy.request.script_name,cherrypy.request.path_info],
                 'user':cherrypy.serving.user.name,
                 'title':'Ligilo Redaktilon',
+                'site_title':conf['site_title'],
                 'url_base':cherrypy.request.base,
                 'site_root':cherrypy.request.base+cherrypy.request.script_name+'/',
                 'here':cherrypy.request.base+cherrypy.request.script_name+cherrypy.request.path_info+'/',
@@ -222,7 +223,7 @@ class LigilojApp(object):
         result = {
             #'debug':[cherrypy.request.base,cherrypy.request.script_name,cherrypy.request.path_info],
             'user':user,
-            'title':u'{0} - {1}'.format(page_title,conf['site_title']),
+            'title':u'{0} - {1}'.format(conf['site_title'],page_title),
             'fancy_title':u'{0} <small>{1}</small>'.format(
                 conf['site_title'],
                 language and page_title or conf['global_title_html']),
