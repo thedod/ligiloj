@@ -185,8 +185,6 @@ class LigilojApp(object):
         return RSS2(title=u'{0} - {1}'.format(conf['site_title'],language and l.name or conf['global_title_text']),
             link=conf['rss_site_url'],
             description=conf['rss_description'],
-            generator='ye-odlde-we-do-not-forget-code-poole',
-            docs='http://www.aaronsw.com/weblog/000574',
             language=language or conf['rss_default_language'],
             items=[RSSItem(title=language and link.title or u"{0}: {1}".format(link.language.name,link.title),
                 link=link.url,
