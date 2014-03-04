@@ -36,8 +36,11 @@ paginate_by: 8
 
 [/link]
 tools.caching.on = False # admins should see up to date info
+request.dispatch: cherrypy.dispatch.MethodDispatcher() # object has GET, POST, etc. methods
 paginate_by: 20
-request.dispatch: cherrypy.dispatch.MethodDispatcher()
+
+[/auth]
+tools.caching.on = False # caching screws up auth
 
 [/favicon.ico]
 tools.staticfile.on: True
