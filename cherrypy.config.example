@@ -29,10 +29,13 @@ rss_default_language: "eo" # Esperanto ;)
 rss_max_size: 100
 
 [/]
+tools.caching.on = True
+tools.caching.delay = 120 # 2 minutes (increase if under load)
 tools.staticdir.root: "/PATH/HERE/static"
 paginate_by: 8
 
 [/link]
+tools.caching.on = False # admins should see up to date info
 paginate_by: 20
 request.dispatch: cherrypy.dispatch.MethodDispatcher()
 
