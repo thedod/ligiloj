@@ -17,7 +17,7 @@ In order to equally share that special "surfing while foreigner" feeling English
 the language of the user interface is Esperanto (It's OK. I don't understand it either ;) ).
 Fear not. There are icons, you can use online translation services, deal with it like most of the world does ;)
 
-![Guess what the small "+ligilo" does :)](metadata/editor-screenshot.jpg)
+![Guess what the small "+ligilon" does :)](metadata/editor-screenshot.jpg)
 
 ### RSS (or, look what we've done to his song. Duh)
 There are RSS feeds at `/rss`[`/<lnaguage code>`]. You browser may not remember how to show this to you (et tu, Mozilla?),
