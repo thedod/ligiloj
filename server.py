@@ -94,7 +94,7 @@ class LigilojLink(object):
             result = {
                 #'debug':[cherrypy.request.script_name,cherrypy.request.path_info],
                 'user':cherrypy.serving.user.name,
-                'title':'Ligilo Redaktilon',
+                'title':'Redaktilo',
                 'site_title':conf['site_title'],
                 'url_base':cherrypy.request.base,
                 'site_root':cherrypy.request.base+cherrypy.request.script_name+'/',
@@ -113,16 +113,16 @@ class LigilojLink(object):
             l = models.Link(
                 published=cp, title=ct, url=cu,
                 language=models.get_language(cl) or models.get_language('eo'))
-            title = u'Aldoni ligilo'
-            fancy_title =u'<i class="glyphicon glyphicon-plus"></i> Aldoni ligilo'
+            title = u'Aldonu ligilon'
+            fancy_title =u'<i class="glyphicon glyphicon-plus"></i> Aldonu ligilon'
         else:
             #--- 1st option: show edit form for an existing link
             try: # get link to edit
                 l = models.Link.get(id=link_id)
             except ValueError,models.DoesNotExist:
                 raise cherrypy.HTTPError(404,"Ligilo ne estas trovita :(")
-            title = u'Redaktado ligilo: {0}'.format(l.__unicode__())
-            fancy_title =u'<i class="glyphicon glyphicon-edit"></i> Redaktado ligilo'
+            title = u'Redaktu ligilon: {0}'.format(l.__unicode__())
+            fancy_title =u'<i class="glyphicon glyphicon-edit"></i> Redaktu ligilon'
         return stache.render(stache.load_template('edit_link'),l,
             user=cherrypy.serving.user.name,
             create=create,
@@ -159,7 +159,7 @@ If srsly_delete, will [SRSLY] delete the link"""
             raise cherrypy.HTTPRedirect('{0}?success=Vera'.format(link_id and '.' or ''),303)
         return stache.render(stache.load_template('edit_link'),l,
             user=cherrypy.serving.user.name,
-            title=u'Redaktado ligilo: {0}'.format(l.__unicode__()), site_title=conf['site_title'],
+            title=u'Redaktu ligilon: {0}'.format(l.__unicode__()), site_title=conf['site_title'],
             site_root=cherrypy.request.base+cherrypy.request.script_name+'/',
             here=here,
             csrf_token=make_csrf_token(),
@@ -201,7 +201,7 @@ class LigilojApp(object):
         try:
             page = max(1,int(arglist[1]))
         except:
-            raise cherrypy.HTTPError(404,"nevalida nombro :(")
+            raise cherrypy.HTTPError(404,"Nevalida nombro :(")
         lang = arglist and arglist[0] or None
         language = None
         if lang is not None:
@@ -223,7 +223,7 @@ class LigilojApp(object):
             'user':user,
             'title':u'{0} - {1}'.format(conf['site_title'],page_title),
             'fancy_title':u'{0} <small>{1}</small>'.format(
-                conf['site_title'],
+                conf['site_title_html'],
                 language and page_title or conf['global_title_html']),
             'site_root':cherrypy.request.base+cherrypy.request.script_name+'/',
             'lang':lang or 'en',
@@ -234,7 +234,8 @@ class LigilojApp(object):
             'links':query.paginate(page,cherrypy.request.config['paginate_by']).dicts()
         }
         result.update(nextprev(query.count(),page,cherrypy.request.config['paginate_by']))
-        return stache.render(stache.load_template('index'),result)
+        skin = kwargs.get('skin','index')
+        return stache.render(stache.load_template(skin),result)
 
 if __name__ == '__main__':
     cherrypy.config.update('{0}/cherrypy.config'.format(APPDIR))

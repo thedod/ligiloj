@@ -21,6 +21,7 @@ tools.lg_authority.site_user_list = {'admin': {'auth_password':{'date':datetime.
 
 [ligiloj]
 site_title: "LOL Katoj"
+site_title_html: '&#128570;'
 global_title_text: 'Internaciaj Ligiloj'
 global_title_html: '<i class="glyphicon glyphicon-globe"></i>'
 rss_site_url: "http://ligiloj.example.com"
