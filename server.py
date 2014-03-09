@@ -171,8 +171,8 @@ class LigilojApp(object):
     @cherrypy.expose
     @lg_authority.groups('auth') # any authenticated user
     def login(self,*args,**kargs):
-        """Just a dummy mountpoint that requires auth."""
-        raise cherrypy.HTTPRedirect(cherrypy.request.base+cherrypy.request.script_name+'/')
+        """Just a dummy mountpoint that requires auth. redirects somewhere that doesn't have cache ;) """
+        raise cherrypy.HTTPRedirect(cherrypy.request.base+cherrypy.request.script_name+'/link')
     @cherrypy.expose
     def rss(self,language=None,*args,**kwargs):
         if language:
