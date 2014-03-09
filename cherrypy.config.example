@@ -43,9 +43,6 @@ paginate_by: 20
 [/auth]
 tools.caching.on = False # caching screws up auth
 
-[/login]
-tools.caching.on = False # caching screws this up too
-
 [/favicon.ico]
 tools.staticfile.on: True
 tools.staticfile.filename: "/PATH/HERE/static/favicon.ico"

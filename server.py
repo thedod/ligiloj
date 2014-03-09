@@ -140,7 +140,7 @@ If srsly_delete, will [SRSLY] delete the link"""
         conf = cherrypy.request.app.config['ligiloj']
         if not check_csrf_token(cherrypy.request.params.get('csrf_token','')):
             raise cherrypy.HTTPRedirect('?csrf_error=Vera',303)
-        here = cherrypy.request.base+cherrypy.request.script_name+cherrypy.request.path_info+'/'
+        here = cherrypy.request.base+cherrypy.request.script_name+cherrypy.request.path_info
         if link_id: # edit existing link
             try: # get link to save
                 l=models.Link.get(id=link_id)
@@ -169,9 +169,8 @@ class LigilojApp(object):
     """The end user app at /[language/][page]"""
     auth = lg_authority.AuthRoot()
     @cherrypy.expose
-    @lg_authority.groups('auth') # any authenticated user
     def login(self,*args,**kargs):
-        """Just a dummy mountpoint that requires auth. redirects somewhere that doesn't have cache ;) """
+        """Dummy method. Simply redirects to the editor, triggering login if needed"""
         raise cherrypy.HTTPRedirect(cherrypy.request.base+cherrypy.request.script_name+'/link')
     @cherrypy.expose
     def rss(self,language=None,*args,**kwargs):
