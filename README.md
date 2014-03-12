@@ -1,6 +1,6 @@
 `Ligiloj` (`links` in Esperanto) is a minimalistic multilingual microblogging app. Possible uses can be:
 
-* An artist who has fans (and gets coverage by media) speaking several languages (this is what Ligiloj was developed for originally :) ).
+* An [artist](http://etgarkeret.com) who has fans (and gets coverage by media) speaking several languages.
 * Coordination of a global event (e.g. "buy nothing day").
 * Even a personal micro blog ([**see demo**](https://swatwt.com/favs)),
   if you and your friends speak more than a single language
