@@ -187,6 +187,7 @@ class LigilojApp(object):
             language=language or conf['rss_default_language'],
             items=[RSSItem(title=language and link.title or u"{0}: {1}".format(link.language.name,link.title),
                 link=link.url,
+                pubDate=link.published.isoformat(),
                 guid=Guid(link.url,str(link.id))) for link in query]).to_xml('utf-8')
         
     @cherrypy.expose
